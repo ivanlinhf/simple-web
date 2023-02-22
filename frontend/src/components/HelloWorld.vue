@@ -1,38 +1,40 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-defineProps<{ msg: string }>()
+import Mails from './Mails.vue'
 
-const count = ref(0)
+defineProps<{ 
+  msg: string 
+}>();
+
+const tab = ref('mails');
+
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <div>
+    <q-tabs v-model="tab">
+      <q-tab name="mails" icon="mail" label="Mails" />
+      <q-tab name="alarms" icon="alarm" label="Alarms" />
+      <q-tab name="movies" icon="movie" label="Movies" />
+    </q-tabs>
 
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+    <q-separator />
+
+    <q-tab-panels v-model="tab">
+          <q-tab-panel name="mails">
+            <Mails />
+          </q-tab-panel>
+
+          <q-tab-panel name="alarms">
+            <div>Alarms</div>
+          </q-tab-panel>
+
+          <q-tab-panel name="movies">
+            <div>Movies</div>
+          </q-tab-panel>
+        </q-tab-panels>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
+<style lang="scss" scoped />
