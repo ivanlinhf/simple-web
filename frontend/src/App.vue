@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import PixelArt from './components/PixelArt.vue'
 </script>
 
 <template>
-  <HelloWorld msg="FIFA" />
+  <PixelArt />
 </template>
 
 <style lang="scss" scoped />
